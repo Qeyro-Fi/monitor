@@ -1,0 +1,17 @@
+services:
+  monitor:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      STATE_FILE: /data/state.json
+    volumes:
+      - monitor-state:/data
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  monitor-state:
