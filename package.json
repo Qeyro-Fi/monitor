@@ -1,0 +1,34 @@
+{
+  "name": "qeyro-fi-monitor",
+  "version": "0.1.0",
+  "description": "Watches the QEYRO FI Threat Oracle and sends alerts when the verified threat level changes or the oracle goes stale.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "qeyro-monitor": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "start": "node dist/cli.js run",
+    "dev": "tsx src/cli.ts"
+  },
+  "dependencies": {
+    "viem": "^2.57.10"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.9"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
