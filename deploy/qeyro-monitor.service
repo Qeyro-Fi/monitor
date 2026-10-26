@@ -1,0 +1,22 @@
+[Unit]
+Description=QEYRO FI Threat Oracle monitor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=qeyro
+WorkingDirectory=/opt/qeyro-fi-monitor
+EnvironmentFile=/etc/qeyro-monitor.env
+ExecStart=/usr/bin/node dist/cli.js run
+Restart=on-failure
+RestartSec=10
+StateDirectory=qeyro-monitor
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/qeyro-monitor
+
+[Install]
+WantedBy=multi-user.target
